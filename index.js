@@ -1,7 +1,12 @@
 import express from "express";
 import exphbs from "express-handlebars";
+import pgPromise from "pg-promise";
 
-// import pgPromise from "pg-promise";
+const pgp = pgPromise();
+
+const connectionString =
+  "postgres://extzsmya:fsr2rClszPPiJpUYFL7My11UHxWR8t7Y@flora.db.elephantsql.com/extzsmya";
+const db = pgp(connectionString);
 
 // const pgp = pgPromise();
 const app = express();
@@ -25,6 +30,8 @@ app.get("/", function (req, res) {
   //set default root
   res.render("index", {});
 });
+app.post("/regnumbers", async (req, res) => {});
+
 const PORT = process.env.PORT || 3005;
 app.listen(PORT, function () {
   console.log("App started at port", PORT);
