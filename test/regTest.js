@@ -1,3 +1,9 @@
+import assert from "assert";
+import registrationNumbers from "../registration";
+import pgPromise from "pg-promise";
+import dotenv from "dotenv";
+dotenv.config();
+const pgp = pgPromise();
 describe("set registration numbers", function () {
   it("It should set registration numbers", function () {
     let registration = registrationNumbers();

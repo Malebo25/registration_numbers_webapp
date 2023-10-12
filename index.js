@@ -1,9 +1,9 @@
 import express from "express";
 import exphbs from "express-handlebars";
-import session from "express-session";
-import pgPromise from "pg-promise";
 
-const pgp = pgPromise();
+// import pgPromise from "pg-promise";
+
+// const pgp = pgPromise();
 const app = express();
 
 const handlebarSetup = exphbs.engine({
@@ -21,16 +21,9 @@ app.use(express.urlencoded({ extended: false })); // set up body parser to creat
 
 app.use(express.json()); // To handle JSON data
 
-app.use(
-  session({
-    secret: "Please enter a valid name(letters)",
-    resave: false,
-    saveUninitialized: true,
-  })
-);
 app.get("/", function (req, res) {
-  res.render("home");
-  n;
+  //set default root
+  res.render("index", {});
 });
 const PORT = process.env.PORT || 3005;
 app.listen(PORT, function () {
